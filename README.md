@@ -13,7 +13,7 @@ import (
 func main() {
     epoch := time.Date(2020, 1, 1, 1, 0, 0, 0, time.UTC)
 
-    snowflake.Init()
+    snowflake.Init(epoch, 1, 1)
 
     fmt.Println(snowflake.Generate())
 }
