@@ -1,20 +1,55 @@
-# Snowflake
+# snowflake
 
-A simple, dependency-free, thread-safe snowflake ID generation library.
+Package snowflake provides a simple snowflake ID generator
+along with interface implementations to make it easy to use
+with database/sql and encoding/json.
 
-## Usage
+## Functions
 
-```go
+### func [Init](/snowflake.go#L47)
+
+`func Init(e time.Time, w, p int)`
+
+Init initializes the Snowflake generator.
+This MUST be called before any calls to Generate.
+
+## Types
+
+### type [Snowflake](/snowflake.go#L55)
+
+`type Snowflake uint64`
+
+Snowflake represents a single Snowflake ID.
+
+#### func [Generate](/snowflake.go#L59)
+
+`func Generate() Snowflake`
+
+Generate generates a new Snowflake.
+This function is thread-safe.
+
+```golang
+package main
+
 import (
-    time
-    github.com/Project-Sparrow/snowflake
+	"fmt"
+	"time"
+
+	"github.com/Sparrow-Project/snowflake"
 )
 
 func main() {
-    epoch := time.Date(2020, 1, 1, 1, 0, 0, 0, time.UTC)
+	epoch := time.Date(2020, 1, 1, 1, 0, 0, 0, time.UTC)
 
-    snowflake.Init(epoch, 1, 1)
+	snowflake.Init(epoch, 1, 1)
 
-    fmt.Println(snowflake.Generate())
+	fmt.Println(snowflake.Generate())
 }
+
 ```
+
+#### func [SnowflakeFromString](/snowflake.go#L76)
+
+`func SnowflakeFromString(s string) (Snowflake, error)`
+
+SnowflakeFromString attempts to parse a Snowflake from a string.
