@@ -1,6 +1,6 @@
 # Snowflake
 
-A simple, dependency-free snowflake ID generation library.
+A simple, dependency-free, thread-safe snowflake ID generation library.
 
 ## Usage
 
