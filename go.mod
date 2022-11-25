@@ -1,3 +1,3 @@
-module github.com/Sparrow-Project/snowflake
+module github.com/Project-Sparrow/snowflake
 
 go 1.19
