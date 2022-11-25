@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Sparrow-Project/snowflake"
+	"github.com/Project-Sparrow/snowflake"
 )
 
 func TestGenerate(t *testing.T) {

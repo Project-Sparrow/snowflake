@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Sparrow-Project/snowflake"
+	"github.com/Project-Sparrow/snowflake"
 )
 
 func ExampleGenerate() {
