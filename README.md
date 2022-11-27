@@ -1,5 +1,7 @@
 # snowflake
 
+[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/.)
+
 Package snowflake provides a simple snowflake ID generator
 along with interface implementations to make it easy to use
 with database/sql and encoding/json.
@@ -14,6 +16,18 @@ Init initializes the Snowflake generator.
 This MUST be called before any calls to Generate.
 
 ## Types
+
+### type [NullSnowflake](/null_snowflake.go#L12)
+
+`type NullSnowflake struct { ... }`
+
+NullSnowflake is a nullable Snowflake
+
+#### func [NewNullSnowflake](/null_snowflake.go#L18)
+
+`func NewNullSnowflake(s Snowflake, valid bool) NullSnowflake`
+
+NewNullSnowflake creates a new NullSnowflake
 
 ### type [Snowflake](/snowflake.go#L55)
 
@@ -35,7 +49,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Sparrow-Project/snowflake"
+	"github.com/Project-Sparrow/snowflake"
 )
 
 func main() {
