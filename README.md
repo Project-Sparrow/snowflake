@@ -1,6 +1,6 @@
 # snowflake
 
-[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/.)
+[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/Project-Sparrow/snowflake)
 
 Package snowflake provides a simple snowflake ID generator
 along with interface implementations to make it easy to use
