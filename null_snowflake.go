@@ -22,6 +22,30 @@ func NewNullSnowflake(s Snowflake, valid bool) NullSnowflake {
 	}
 }
 
+// NullSnowflakeFromPtr creates a new NullSnowflake from a Snowflake pointer
+func NullSnowflakeFromPtr(s *Snowflake) NullSnowflake {
+	if s == nil {
+		return NewNullSnowflake(Snowflake(0), false)
+	}
+
+	return NewNullSnowflake(*s, true)
+}
+
+// NullSnowflakeFromStringPtr creates a new NullSnowflake from a string pointer
+// Always returns a NullSnowflake, will be invalid if the string cannot be converted to an int
+func NullSnowflakeFromStringPtr(s *string) NullSnowflake {
+	if s == nil {
+		return NewNullSnowflake(Snowflake(0), false)
+	}
+
+	snowflake, err := SnowflakeFromString(*s)
+	if err != nil {
+		return NewNullSnowflake(Snowflake(0), false)
+	}
+
+	return NewNullSnowflake(snowflake, true)
+}
+
 // Scan implements sql.Scanner interface
 func (s *NullSnowflake) Scan(value any) error {
 	if value == nil {
